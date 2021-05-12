@@ -1,146 +1,199 @@
 <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
-    <mat-form-field class="max-width" >
-        <mat-label>Type</mat-label>
-        <mat-select  formControlName="type" class="form-control"  matNativeControl required>
-            <mat-option value="110100">Application Activity</mat-option>
-            <mat-option value="110101">Audit Log Used</mat-option>
-            <mat-option value="110102">Begin Transferring DICOM Instances</mat-option>
-            <mat-option value="110103">DICOM Instances Accessed</mat-option>
-            <mat-option value="110104">DICOM Instances Transferred</mat-option>
-            <mat-option value="110105">DICOM Study Deleted</mat-option>
-            <mat-option value="110106">Export</mat-option>
-            <mat-option value="110107">Import</mat-option>
-            <mat-option value="110108">Network Entry</mat-option>
-            <mat-option value="110109">Order Record</mat-option>
-            <mat-option value="110110">Patient Record</mat-option>
-            <mat-option value="110111">Procedure Record</mat-option>
-            <mat-option value="110112">Query</mat-option>
-            <mat-option value="110113">Security Alert</mat-option>
-            <mat-option value="110114">User Authentication</mat-option>
-            <mat-option value="rest">RESTful Operation</mat-option>
-            <mat-option value="access">Access/View Record Lifecycle Event</mat-option>
-            <mat-option value="hold">Add Legal Hold Record Lifecycle Event</mat-option>
-            <mat-option value="amend">Amend (Update) Record Lifecycle Event</mat-option>
-            <mat-option value="archive">Archive Record Lifecycle Event</mat-option>
-            <mat-option value="attest">Attest Record Lifecycle Event</mat-option>
-            <mat-option value="decrypt">Decrypt Record Lifecycle Event</mat-option>
-            <mat-option value="deindentify">De-Identify (Anononymize) Record Lifecycle Event</mat-option>
-            <mat-option value="deprecate">Deprecate Record Lifecycle Event</mat-option>
-            <mat-option value="destroy">Destroy/Delete Record Lifecycle Event</mat-option>
-            <mat-option value="disclose">Disclose Record Lifecycle Event</mat-option>
-            <mat-option value="encrypt">Encrypt Record Lifecycle Event</mat-option>
-            <mat-option value="extract">Extract Record Lifecycle Event</mat-option>
-            <mat-option value="link">Link Record Lifecycle Event</mat-option>
-            <mat-option value="merge">Merge Record Lifecycle Event</mat-option>
-            <mat-option value="originate">Originate/Retain Record Lifecycle Event</mat-option>
-            <mat-option value="preudonymize">Pseudonymize Record Lifecycle Event</mat-option>
-            <mat-option value="reactivate">Re-activate Record Lifecycle Event</mat-option>
-            <mat-option value="receive">Receive/Retain Record Lifecycle Event</mat-option>
-            <mat-option value="reidentify">Re-identify Record Lifecycle Event</mat-option>
-            <mat-option value="unhold">Remove Legal Hold Record Lifecycle Event</mat-option>
-            <mat-option value="report">Report (Output) Record Lifecycle Event</mat-option>
-            <mat-option value="restore">Restore Record Lifecycle Event</mat-option>
-            <mat-option value="transform">Transform/Translate Record Lifecycle Event</mat-option>
-            <mat-option value="transmit">Transmit Record Lifecycle Event</mat-option>
-            <mat-option value="unlink">Unlink Record Lifecycle Event</mat-option>
-            <mat-option value="unmerge">Unmerge Record Lifecycle Event</mat-option>
-            <mat-option value="verify">Verify Record Lifecycle Event</mat-option>
-        </mat-select>
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Sub-Type</mat-label>
-        <mat-select formControlName="subtype"  matNativeControl required>
-            <mat-option value="110120">Application Start</mat-option>
-            <mat-option value="110121">Application Stop</mat-option>
-            <mat-option value="110122">Login</mat-option>
-            <mat-option value="110123">Logout</mat-option>
-            <mat-option value="110124">Attach</mat-option>
-            <mat-option value="110125">Detach</mat-option>
-            <mat-option value="110126">Node Authentication</mat-option>
-            <mat-option value="110127">Emergency Override Started</mat-option>
-            <mat-option value="110128">Network Configuration</mat-option>
-            <mat-option value="110129">Security Configuration</mat-option>
-            <mat-option value="110130">Hardware Configuration</mat-option>
-            <mat-option value="110131">Software Configuration</mat-option>
-            <mat-option value="110132">Use of Restricted Function</mat-option>
-            <mat-option value="110133">Audit Recording Stopped</mat-option>
-            <mat-option value="110134">Audit Recording Started</mat-option>
-            <mat-option value="110135">Object Security Attributes Changed</mat-option>
-            <mat-option value="110136">Security Roles Changed</mat-option>
-            <mat-option value="110137">User security Attributes Changed</mat-option>
-            <mat-option value="110138">Emergency Override Stopped</mat-option>
-            <mat-option value="110139">Remote Service Operation Started</mat-option>
-            <mat-option value="110140">Remote Service Operation Stopped</mat-option>
-            <mat-option value="110141">Local Service Operation Started</mat-option>
-            <mat-option value="110142">Local Service Operation Stopped</mat-option>
-            <mat-option value="read">Read</mat-option>
-            <mat-option value="vread">Version read</mat-option>
-            <mat-option value="update">Update</mat-option>
-            <mat-option value="patch">Patch</mat-option>
-            <mat-option value="delete">Delete</mat-option>
-            <mat-option value="history">History</mat-option>
-            <mat-option value="history-instance">History instance</mat-option>
-            <mat-option value="hystory-type">History type</mat-option>
-            <mat-option value="history-system">History system</mat-option>
-            <mat-option value="create">Create</mat-option>
-            <mat-option value="search">Search</mat-option>
-            <mat-option value="search-type">Search type</mat-option>
-            <mat-option value="search-system">Search system</mat-option>
-            <mat-option value="capabilities">Capabilities</mat-option>
-            <mat-option value="transaction">Transaction</mat-option>
-            <mat-option value="batch">Batch</mat-option>
-            <mat-option value="operation">Operation</mat-option>
-        </mat-select>
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Action</mat-label>
-        <mat-select  formControlName="action"  matNativeControl required>
-            <mat-option value="C">Create</mat-option>
-            <mat-option value="R">Read/View/Print</mat-option>
-            <mat-option value="U">Update</mat-option>
-            <mat-option value="D">Delete</mat-option>
-            <mat-option value="E">Execute</mat-option>
-        </mat-select>
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Period</mat-label>
-        <input matInput>
-    </mat-form-field><br>
-    <mat-form-field appearance="fill">
-            <mat-label>Recorded</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Outcome</mat-label>
-        <mat-select matNativeControl required>
-            <mat-option value="0">Success</mat-option>
-            <mat-option value="4">Minor faliure</mat-option>
-            <mat-option value="8">Serious failure</mat-option>
-            <mat-option value="12">Major failure</mat-option>
-        </mat-select>
-    </mat-form-field> <br>
-    <mat-form-field>
-        <mat-label>Outcome description</mat-label>
-        <input matInput type="text" name="outcome" formControlName="outcome">
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Purpose of event</mat-label>
-        <input matInput type="text" name="purposeOfEvent" formControlName="purposeOfEvent">
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Agent</mat-label>
-        <input matInput type="text" name="agent" formControlName="agent">
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Source</mat-label>
-        <input matInput type="text" name="source" formControlName="source">
-    </mat-form-field><br>
-    <mat-form-field>
-        <mat-label>Entity</mat-label>
-        <input matInput type="text" name="entity" formControlName="entity">
-    </mat-form-field> <br>
-    
-    <button type="submit" mat-raised-button color="primary" [disabled]="!editForm.valid">Update</button>
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>Edit Audit Event</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="max-width">
+                        <mat-label>Type</mat-label>
+                        <mat-select formControlName="type" class="form-control" matNativeControl required>
+                            <mat-option value="110100">Application Activity</mat-option>
+                            <mat-option value="110101">Audit Log Used</mat-option>
+                            <mat-option value="110102">Begin Transferring DICOM Instances</mat-option>
+                            <mat-option value="110103">DICOM Instances Accessed</mat-option>
+                            <mat-option value="110104">DICOM Instances Transferred</mat-option>
+                            <mat-option value="110105">DICOM Study Deleted</mat-option>
+                            <mat-option value="110106">Export</mat-option>
+                            <mat-option value="110107">Import</mat-option>
+                            <mat-option value="110108">Network Entry</mat-option>
+                            <mat-option value="110109">Order Record</mat-option>
+                            <mat-option value="110110">Patient Record</mat-option>
+                            <mat-option value="110111">Procedure Record</mat-option>
+                            <mat-option value="110112">Query</mat-option>
+                            <mat-option value="110113">Security Alert</mat-option>
+                            <mat-option value="110114">User Authentication</mat-option>
+                            <mat-option value="rest">RESTful Operation</mat-option>
+                            <mat-option value="access">Access/View Record Lifecycle Event</mat-option>
+                            <mat-option value="hold">Add Legal Hold Record Lifecycle Event</mat-option>
+                            <mat-option value="amend">Amend (Update) Record Lifecycle Event</mat-option>
+                            <mat-option value="archive">Archive Record Lifecycle Event</mat-option>
+                            <mat-option value="attest">Attest Record Lifecycle Event</mat-option>
+                            <mat-option value="decrypt">Decrypt Record Lifecycle Event</mat-option>
+                            <mat-option value="deindentify">De-Identify (Anononymize) Record Lifecycle Event</mat-option>
+                            <mat-option value="deprecate">Deprecate Record Lifecycle Event</mat-option>
+                            <mat-option value="destroy">Destroy/Delete Record Lifecycle Event</mat-option>
+                            <mat-option value="disclose">Disclose Record Lifecycle Event</mat-option>
+                            <mat-option value="encrypt">Encrypt Record Lifecycle Event</mat-option>
+                            <mat-option value="extract">Extract Record Lifecycle Event</mat-option>
+                            <mat-option value="link">Link Record Lifecycle Event</mat-option>
+                            <mat-option value="merge">Merge Record Lifecycle Event</mat-option>
+                            <mat-option value="originate">Originate/Retain Record Lifecycle Event</mat-option>
+                            <mat-option value="preudonymize">Pseudonymize Record Lifecycle Event</mat-option>
+                            <mat-option value="reactivate">Re-activate Record Lifecycle Event</mat-option>
+                            <mat-option value="receive">Receive/Retain Record Lifecycle Event</mat-option>
+                            <mat-option value="reidentify">Re-identify Record Lifecycle Event</mat-option>
+                            <mat-option value="unhold">Remove Legal Hold Record Lifecycle Event</mat-option>
+                            <mat-option value="report">Report (Output) Record Lifecycle Event</mat-option>
+                            <mat-option value="restore">Restore Record Lifecycle Event</mat-option>
+                            <mat-option value="transform">Transform/Translate Record Lifecycle Event</mat-option>
+                            <mat-option value="transmit">Transmit Record Lifecycle Event</mat-option>
+                            <mat-option value="unlink">Unlink Record Lifecycle Event</mat-option>
+                            <mat-option value="unmerge">Unmerge Record Lifecycle Event</mat-option>
+                            <mat-option value="verify">Verify Record Lifecycle Event</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Sub-Type</mat-label>
+                        <mat-select formControlName="subtype" matNativeControl required>
+                            <mat-option value="110120">Application Start</mat-option>
+                            <mat-option value="110121">Application Stop</mat-option>
+                            <mat-option value="110122">Login</mat-option>
+                            <mat-option value="110123">Logout</mat-option>
+                            <mat-option value="110124">Attach</mat-option>
+                            <mat-option value="110125">Detach</mat-option>
+                            <mat-option value="110126">Node Authentication</mat-option>
+                            <mat-option value="110127">Emergency Override Started</mat-option>
+                            <mat-option value="110128">Network Configuration</mat-option>
+                            <mat-option value="110129">Security Configuration</mat-option>
+                            <mat-option value="110130">Hardware Configuration</mat-option>
+                            <mat-option value="110131">Software Configuration</mat-option>
+                            <mat-option value="110132">Use of Restricted Function</mat-option>
+                            <mat-option value="110133">Audit Recording Stopped</mat-option>
+                            <mat-option value="110134">Audit Recording Started</mat-option>
+                            <mat-option value="110135">Object Security Attributes Changed</mat-option>
+                            <mat-option value="110136">Security Roles Changed</mat-option>
+                            <mat-option value="110137">User security Attributes Changed</mat-option>
+                            <mat-option value="110138">Emergency Override Stopped</mat-option>
+                            <mat-option value="110139">Remote Service Operation Started</mat-option>
+                            <mat-option value="110140">Remote Service Operation Stopped</mat-option>
+                            <mat-option value="110141">Local Service Operation Started</mat-option>
+                            <mat-option value="110142">Local Service Operation Stopped</mat-option>
+                            <mat-option value="read">Read</mat-option>
+                            <mat-option value="vread">Version read</mat-option>
+                            <mat-option value="update">Update</mat-option>
+                            <mat-option value="patch">Patch</mat-option>
+                            <mat-option value="delete">Delete</mat-option>
+                            <mat-option value="history">History</mat-option>
+                            <mat-option value="history-instance">History instance</mat-option>
+                            <mat-option value="hystory-type">History type</mat-option>
+                            <mat-option value="history-system">History system</mat-option>
+                            <mat-option value="create">Create</mat-option>
+                            <mat-option value="search">Search</mat-option>
+                            <mat-option value="search-type">Search type</mat-option>
+                            <mat-option value="search-system">Search system</mat-option>
+                            <mat-option value="capabilities">Capabilities</mat-option>
+                            <mat-option value="transaction">Transaction</mat-option>
+                            <mat-option value="batch">Batch</mat-option>
+                            <mat-option value="operation">Operation</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Action</mat-label>
+                        <mat-select formControlName="action" matNativeControl required>
+                            <mat-option value="C">Create</mat-option>
+                            <mat-option value="R">Read/View/Print</mat-option>
+                            <mat-option value="U">Update</mat-option>
+                            <mat-option value="D">Delete</mat-option>
+                            <mat-option value="E">Execute</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Period</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Recorded</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Outcome</mat-label>
+                        <mat-select matNativeControl required>
+                            <mat-option value="0">Success</mat-option>
+                            <mat-option value="4">Minor faliure</mat-option>
+                            <mat-option value="8">Serious failure</mat-option>
+                            <mat-option value="12">Major failure</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Outcome description</mat-label>
+                        <input matInput type="text" name="outcome" formControlName="outcome">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Purpose of event</mat-label>
+                        <input matInput type="text" name="purposeOfEvent" formControlName="purposeOfEvent">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Agent</mat-label>
+                        <input matInput type="text" name="agent" formControlName="agent">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Source</mat-label>
+                        <input matInput type="text" name="source" formControlName="source">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Entity</mat-label>
+                        <input matInput type="text" name="entity" formControlName="entity">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!editForm.valid">Update</button>
+        </mat-card-actions>
+    </mat-card>
 </form>
