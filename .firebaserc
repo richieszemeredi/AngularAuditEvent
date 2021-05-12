@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angularauditevent"
+  },
+  "targets": {
+    "angularauditevent": {
+      "hosting": {
+        "AngularAuditEvent": [
+          "angularauditevent"
+        ]
+      }
+    }
+  }
+}

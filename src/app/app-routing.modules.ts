@@ -7,7 +7,7 @@ import { ListAuditeventComponent } from './list-auditevent/list-auditevent.compo
 import { EditAuditeventComponent } from './edit-auditevent/edit-auditevent.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/create', pathMatch: 'full' },
+  { path: '', redirectTo: '/list-auditevent', pathMatch: 'full' },
   { path: 'create', component: CreateAuditeventComponent },
   { path: 'list-auditevent', component: ListAuditeventComponent },
   { path: 'edit-auditevent/:id', component: EditAuditeventComponent }
