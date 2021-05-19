@@ -11,4 +11,6 @@ export class AuditEvent {
     agent: String;
     source: String;
     entity: String;
+    start: String;
+    end: String;
 }

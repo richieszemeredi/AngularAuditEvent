@@ -22,14 +22,16 @@ export class EditAuditeventComponent implements OnInit {
       type: [''],
       subtype: [''],
       action: [''],
-      period: [''],
+      //period: [''],
       recorded: [''],
       outcome: [''],
       outcomeDesc: [''],
       purposeOfEvent: [''],
       agent: [''],
       source: [''],
-      entity: ['']
+      entity: [''],
+      start: [''],
+      end: ['']
     })
   }
 
@@ -42,19 +44,26 @@ export class EditAuditeventComponent implements OnInit {
         subtype: [this.auditEventRef.subtype],
         action: [this.auditEventRef.action],
         period: [this.auditEventRef.period],
-        recorded: [this.auditEventRef.recorded],
+        recorded: [new Date(this.auditEventRef.recorded)],
         outcome: [this.auditEventRef.outcome],
         outcomeDesc: [this.auditEventRef.outcomeDesc],
         purposeOfEvent: [this.auditEventRef.purposeOfEvent],
         agent: [this.auditEventRef.agent],
         source: [this.auditEventRef.source],
-        entity: [this.auditEventRef.entity]
-      })      
-    })
+        entity: [this.auditEventRef.entity],
+        start: [new Date(this.auditEventRef.start)],
+        end:[new Date(this.auditEventRef.end)]
+      });  
+    });
   }
 
   onSubmit() {
     const id = this.act.snapshot.paramMap.get('id');
+    this.editForm.value.period = this.editForm.value.start.toISOString().split('T')[0] + ' - ' + this.editForm.value.end.toISOString().split('T')[0];
+
+    this.editForm.value.recorded = this.editForm.value.recorded.toISOString().split('T')[0];
+    this.editForm.value.start = this.editForm.value.start.toISOString().split('T')[0];
+    this.editForm.value.end = this.editForm.value.end.toISOString().split('T')[0];
 
     this.auditEventService.updateAuditEvent(this.editForm.value, id);
     this.router.navigate(['list-auditevent']);

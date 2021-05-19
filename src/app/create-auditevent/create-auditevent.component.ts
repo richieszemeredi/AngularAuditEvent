@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuditEventService } from '../audit-event.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from "@angular/router";
 
 @Component({
@@ -28,14 +28,21 @@ export class CreateAuditeventComponent implements OnInit {
       agent: [''],
       source:[''],
       entity:[''],
+      start: [''],
+      end: ['']
     })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onSubmit() {
+    this.auditEventForm.value.recorded = this.auditEventForm.value.recorded.toISOString().split('T')[0];
+    this.auditEventForm.value.period = this.auditEventForm.value.start.toISOString().split('T')[0] + ' - ' + this.auditEventForm.value.end.toISOString().split('T')[0];
+    this.auditEventForm.value.start = this.auditEventForm.value.start.toISOString().split('T')[0];
+    this.auditEventForm.value.end = this.auditEventForm.value.end.toISOString().split('T')[0];
+
     this.auditEventService.createAuditEvent(this.auditEventForm.value);
+
     this.router.navigate(['list-auditevent']);
   }
 }

@@ -44,7 +44,9 @@ export class AuditEventService {
         purposeOfEvent: auditEvent.purposeOfEvent,
         agent: auditEvent.agent,
         source: auditEvent.source,
-        entity: auditEvent.entity
+        entity: auditEvent.entity,
+        start: auditEvent.start,
+        end: auditEvent.end
       });
   }
 }

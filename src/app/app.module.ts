@@ -6,7 +6,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { AppComponent } from './app.component';
 import { CreateAuditeventComponent } from './create-auditevent/create-auditevent.component';
 import { ListAuditeventComponent } from './list-auditevent/list-auditevent.component';
@@ -25,9 +24,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-//import { FormTestComponent } from './form-test/form-test.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +36,10 @@ import { MatCardModule } from '@angular/material/card';
     CreateAuditeventComponent,
     ListAuditeventComponent,
     EditAuditeventComponent,
-    //FormTestComponent
   ],
   imports: [
+    MatSortModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatTableModule,
     MatNativeDateModule,
